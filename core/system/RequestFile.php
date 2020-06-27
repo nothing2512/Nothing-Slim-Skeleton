@@ -25,7 +25,6 @@ class RequestFile
     {
         $dir = $this->path . $folder . "\\";
 
-        if(!file_exists($this->path)) mkdir($this->path);
         if(!file_exists($dir)) mkdir($dir);
 
         $filename = date("YmdHis") . "." . $this->ext;

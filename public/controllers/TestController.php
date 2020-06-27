@@ -17,6 +17,6 @@ class TestController extends BaseController
 
         $data = $this->test->test();
 
-        return $this->response->success($this->request);
+        return $this->response->success($data);
     }
 }

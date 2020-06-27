@@ -48,5 +48,13 @@
             "core/system/Response.php",
             "core/system/Router.php"
         ]
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "mkdir storage"
+        ],
+        "post-update-cmd": [
+            "mkdir storage"
+        ]
     }
 }
