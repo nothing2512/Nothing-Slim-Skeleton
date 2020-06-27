@@ -1,0 +1,6 @@
+<?php
+
+class {{CONTROLLER_NAME}}Controller extends BaseController
+{
+
+}

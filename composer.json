@@ -1,0 +1,52 @@
+{
+    "name": "slim/nothing",
+    "keywords": [
+        "framework",
+        "api",
+        "slim",
+        "nothing"
+    ],
+    "license": "MIT",
+    "description": "Api Skeleton",
+    "type": "project",
+    "minimum-stability": "dev",
+    "require": {
+        "ext-json": "^7.4",
+        "ext-PDO": "^7.4",
+        "slim/slim": "3.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "public/"
+        },
+        "files": [
+            "public/system/Config.php",
+            "core/base/BaseController.php",
+            "core/helper/MainHelper.php",
+            "core/system/App.php",
+            "core/system/Cors.php",
+            "core/system/Connection.php",
+            "core/system/Request.php",
+            "core/system/RequestFile.php",
+            "core/system/Response.php",
+            "core/system/Router.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "App\\": "public/"
+        },
+        "files": [
+            "public/system/Config.php",
+            "core/base/BaseController.php",
+            "core/helper/MainHelper.php",
+            "core/system/App.php",
+            "core/system/Cors.php",
+            "core/system/Connection.php",
+            "core/system/Request.php",
+            "core/system/RequestFile.php",
+            "core/system/Response.php",
+            "core/system/Router.php"
+        ]
+    }
+}

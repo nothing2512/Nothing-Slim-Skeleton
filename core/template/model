@@ -1,0 +1,10 @@
+<?php
+
+namespace App\Models;
+
+use Connection;
+
+class {{MODEL_NAME}} extends Connection
+{
+
+}

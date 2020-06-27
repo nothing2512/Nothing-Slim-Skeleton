@@ -1,0 +1,20 @@
+<?php
+
+$command = @$argv[1] ?: "";
+
+switch($command) {
+    case "controller":
+    case "c":
+        $func = require_once './core/maker/controller.php';
+        $func(ucfirst($argv[2]));
+        break;
+    case "model":
+    case "m":
+        $func = require_once './core/maker/model.php';
+        $func(ucfirst($argv[2]));
+        break;
+    case "middleware":
+        $func = require_once './core/maker/middleware.php';
+        $func(ucfirst($argv[2]));
+        break;
+}
