@@ -17,7 +17,7 @@ abstract class BaseController implements Constants
 
     protected function parse($request, $response) 
     {
-        $this->request = Request::parse($request);
+        $this->request = Request::parse($request, $response);
         $this->response = Response::create($response);
     }
 }

@@ -23,6 +23,7 @@
             "public/system/Config.php",
             "core/base/BaseController.php",
             "core/helper/MainHelper.php",
+            "core/helper/Validator.php",
             "core/system/App.php",
             "core/system/Cors.php",
             "core/system/Connection.php",
@@ -40,6 +41,7 @@
             "public/system/Config.php",
             "core/base/BaseController.php",
             "core/helper/MainHelper.php",
+            "core/helper/Validator.php",
             "core/system/App.php",
             "core/system/Cors.php",
             "core/system/Connection.php",
@@ -47,14 +49,6 @@
             "core/system/RequestFile.php",
             "core/system/Response.php",
             "core/system/Router.php"
-        ]
-    },
-    "scripts": {
-        "post-install-cmd": [
-            "mkdir storage"
-        ],
-        "post-update-cmd": [
-            "mkdir storage"
         ]
     }
 }

@@ -8,7 +8,7 @@ class Request
     public $auth;
     public $files;
 
-    public function __construct($params, $auth)
+    public function __construct(Object $params, Object $auth)
     {
         $this->auth = $auth;
         $this->files = (object) [];
@@ -55,6 +55,11 @@ class Request
 
 
         return new Request($params, $auth);
+    }
+
+    public function validate($params)
+    {
+       return Validator::validate($this, $params);
     }
 
     public function remove($key)
