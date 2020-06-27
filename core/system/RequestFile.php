@@ -24,7 +24,10 @@ class RequestFile
     public function upload($folder)
     {
         $dir = $this->path . $folder . "\\";
+
+        if(!file_exists($this->path)) mkdir($this->path);
         if(!file_exists($dir)) mkdir($dir);
+
         $filename = date("YmdHis") . "." . $this->ext;
         move_uploaded_file($this->location, $dir . $filename);
         $this->uri = $this->host . "/storage/$folder/$filename";
