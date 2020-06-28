@@ -13,11 +13,12 @@ class RequestFile
     public function __construct($file)
     {
         $ext = explode(".", $file['name']);
+        $path = explode("core", __DIR__);
 
         $this->ext = end($ext);
         $this->location = $file['tmp_name'];
         $this->uri = "";
-        $this->path = str_replace("core\\helper", "\\storage\\", __DIR__);
+        $this->path = $path[0] . "storage\\";
         $this->host = $_SERVER['REQUEST_SCHEME'] . "://" . $_SERVER['HTTP_HOST'] . "/" . explode("/", $_SERVER['REQUEST_URI'])[1];
     }
 

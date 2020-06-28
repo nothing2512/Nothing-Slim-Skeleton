@@ -57,6 +57,15 @@ class Request
         return new Request($params, $auth);
     }
 
+    public function uploads($params)
+    {
+        foreach($params as $key => $path)
+        {
+            $this->files->$key->upload($path);
+            $this->$key = $this->files->$key->uri;
+        }
+    }
+
     public function validate($params)
     {
        return Validator::validate($this, $params);
