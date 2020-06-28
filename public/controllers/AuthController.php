@@ -1,6 +1,6 @@
 <?php
 
-$this->post('', AuthController::class . ":login");
+$this->get('', AuthController::class . ":login");
 
 class AuthController extends BaseController
 {
@@ -8,14 +8,8 @@ class AuthController extends BaseController
     {
         $this->parse($request, $response);
 
-        $valid = $this->request->validate([
-            "name"  => "required|min:3|max:10|text|not_special"
-        ]);
+        $token = Tokenizer::generate(1);
 
-        if ($valid->status == false) return $this->response->error($valid->message);
-
-        $this->request->uploads([ "photo" => "photo" ]);
-
-        return $this->response->success($this->request);
+        return $this->response->success($token);
     }
 }
