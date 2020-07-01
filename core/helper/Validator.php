@@ -32,6 +32,11 @@ class Validator
             "message"   => "$key must not be numeric"
         ];
 
+        if($reg[$i] == "email" && !filter_var($data, FILTER_VALIDATE_EMAIL)) return (object) [
+            "status"    => false,
+            "message"   => "email address is not valid"
+        ];
+
         if(($reg[$i] == "number" || $reg[$i] == "num" || $reg[$i] == "numeric") && !is_numeric($data))  return (object) [
             "status"    => false,
             "message"   => "$key must be numeric"

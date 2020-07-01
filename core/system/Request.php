@@ -17,7 +17,7 @@ class Request
             $this->$key = $value;
         }
 
-        foreach($_FILES as $key => $value) {
+        foreach ($_FILES as $key => $value) {
             $this->files->$key = new RequestFile($value);
         }
     }
@@ -36,18 +36,18 @@ class Request
         if (sizeof($_auth) == 0) {
             $auth = (object) [
                 "userId"    => 0,
-                "apiKey"     => ""
+                "token"     => ""
             ];
         } else {
             $_auth = explode(":", $_auth[0]);
 
             $auth = sizeof($_auth) == 1 ? (object) [
                 "userId"    => 0,
-                "apiKey"     => "Invalid",
+                "token"     => "Invalid",
                 "status"    => false
             ] :  (object) [
                 "userId"    => $_auth[0],
-                "apiKey"    => $_auth[1],
+                "token"    => $_auth[1],
                 "status"    => true
             ];
         }
@@ -59,8 +59,7 @@ class Request
 
     public function uploads($params)
     {
-        foreach($params as $key => $path)
-        {
+        foreach ($params as $key => $path) {
             $this->files->$key->upload($path);
             $this->$key = $this->files->$key->uri;
         }
@@ -68,7 +67,7 @@ class Request
 
     public function validate($params)
     {
-       return Validator::validate($this, $params);
+        return Validator::validate($this, $params);
     }
 
     public function remove($key)

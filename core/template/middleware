@@ -2,15 +2,19 @@
 
 namespace App\Middlewares;
 
-use Slim\Http\Request;
-use Slim\Http\Response;
+use Request;
+use Response;
+use Slim\Http\Request as HttpRequest;
+use Slim\Http\Response as HttpResponse;
 
 class {{MW}}
 {
 
-    public function __invoke(Request $request, Response $response, $next)
+    public function __invoke(HttpRequest $req, HttpResponse $res, $next)
     {
-        /** TODO HERE */
-        return $next($request, $response);
+        $request = Request::parse($req);
+        $response = Response::create($res);
+
+        return $next($req, $res);
     }
 }

@@ -28,7 +28,7 @@ class Tokenizer
 
     private static function getPath($data)
     {
-        $path = str_replace("system", "temp\\", __DIR__);
+        $path = str_replace("helper", "temp\\", __DIR__);
         $filename = encrypt($data);
         return $path . $filename;
     }
