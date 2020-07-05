@@ -34,6 +34,9 @@ class App {
         // Cors Setup
         $slim->add(new Cors());
 
-        $slim->run();
+        try {
+            $slim->run();
+        } catch (Throwable $e) {
+        }
     }
 }

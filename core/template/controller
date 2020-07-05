@@ -1,6 +1,8 @@
 <?php
 
-class {{CONTROLLER_NAME}}Controller extends BaseController
+use App\System\Constants;
+
+class {{CONTROLLER_NAME}}Controller extends BaseController implements Constants
 {
 
 }

@@ -1,17 +1,25 @@
 <?php
 
 use Slim\Http\Request as HttpRequest;
+use App\Models\User;
 
 class Request
 {
 
     public $auth;
     public $files;
+    public $user;
 
     public function __construct(Object $params, Object $auth)
     {
+
         $this->auth = $auth;
         $this->files = (object) [];
+
+        if($auth->userId != 0) {
+            $user = new User();
+            $this->user = $user->get($auth->userId);
+        }
 
         foreach ($params as $key => $value) {
             $this->$key = $value;
@@ -19,6 +27,13 @@ class Request
 
         foreach ($_FILES as $key => $value) {
             $this->files->$key = new RequestFile($value);
+        }
+    }
+    
+    public function addAll($args) 
+    {
+        foreach ($args as $key => $value) {
+            $this->$key = $value;
         }
     }
 

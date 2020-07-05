@@ -3,9 +3,15 @@
 class Connection
 {
 
+    /**
+     * @var PDO
+     */
     private $pdo;
+
+    /**
+     * @var PDOStatement
+     */
     private $stmt;
-    private $config;
 
     public function __construct()
     {
@@ -45,7 +51,7 @@ class Connection
         return $object != null ? $this->_parse($object, $data) : $data;
     }
 
-    public function fetch ($object = null ) {
+    protected function fetch ($object = null ) {
 
         $data = $this->stmt->fetch();
 
@@ -54,27 +60,36 @@ class Connection
         return ( object ) $this->_fetch($data, $object);
     }
 
-    public function fetchAll ( $object = null ) {
+    protected function fetchAll ( $object = null ) {
 
         $data = $this->stmt->fetchAll();
 
-        if ($data == false) return null;
+        if ($data == false) return [];
 
         return ( array ) $this->_fetch($data, $object);
     }
 
-    public function query ( $query, $params = []) {
+    protected function query ( $query, $params = []) {
 
-        if ( is_null($this->pdo)) $this->create();
+        try {
+            if (is_null($this->pdo)) $this->create();
 
-        $stmt = $this->pdo->prepare($query);
+            $stmt = $this->pdo->prepare($query);
 
-        $stmt->execute($params);
+            $stmt->execute($params);
 
-        $this->stmt = $stmt;
+            $this->stmt = $stmt;
+        } catch (Exception $e) {
+            echo $e->getMessage() . "<br>";
+            echo json_encode($params) . "<br>";
+            foreach ($params as $key => $value) {
+                $query = str_replace($key, $value, $query);
+            }
+            echo  $query; die();
+        }
     }
 
-    public function lastInsertId() {
+    protected function lastInsertId() {
         return $this->pdo->lastInsertId();
     }
 

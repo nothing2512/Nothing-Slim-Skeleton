@@ -1,5 +1,5 @@
 {
-    "name": "nothing/slim-skeleton",
+    "name": "nothing/ovium",
     "keywords": [
         "framework",
         "api",
@@ -28,6 +28,7 @@
             "core/system/App.php",
             "core/system/Cors.php",
             "core/system/Connection.php",
+            "core/system/NothingDefiner.php",
             "core/system/Request.php",
             "core/system/RequestFile.php",
             "core/system/Response.php",
@@ -47,6 +48,7 @@
             "core/system/App.php",
             "core/system/Cors.php",
             "core/system/Connection.php",
+            "core/system/NothingDefiner.php",
             "core/system/Request.php",
             "core/system/RequestFile.php",
             "core/system/Response.php",
